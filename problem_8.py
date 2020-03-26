@@ -10,21 +10,12 @@ a = list(str(a))
 
 for i in range(len(a)):
     a[i] = int(a[i])
-    
-adj_prods = []
-    
-def high_adj(x):
-    for i in range(0,len(str_a)):
-        adj_prods.append(numpy.prod(a[i:i+x]))
-    highest = adj_prods.index(max(adj_prods))
-    return a[highest:highest+x]
 
-result = high_adj(13)
-str_result = []
+p = 0
+for i in range(len(a)-12):
+    x = a[i:(i+13)]
+    product = numpy.prod(x)
+    if product > p:
+        p = product
 
-for i in range(len(result)):
-    str_result.append(str(result[i]))
-    
-str_result = ''.join(str_result)
-
-print('The number is ' + str_result + ' and the product is ' + str(numpy.prod(result)))
+print(p)
